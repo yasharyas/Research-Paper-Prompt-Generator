@@ -34,6 +34,9 @@ def main():
 
     if st.sidebar.button("Generate Prompts"):
         if research_paper_topic and sample_prompt and table_of_contents:
+            st.subheader("Sample Prompt")
+            st.write(sample_prompt)
+            
             prompts = generate_prompts(table_of_contents, research_paper_topic, sample_prompt)
             st.subheader("Generated Prompts")
             for i, prompt in enumerate(prompts, start=1):
