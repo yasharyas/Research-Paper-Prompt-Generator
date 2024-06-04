@@ -23,38 +23,31 @@ The Research Paper Prompt Generator is a Python script designed to generate writ
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/research-paper-prompt-generator.git
+   git clone https://github.com/yasharyas/research-paper-prompt-generator.git
    ```
 2. Navigate to the project directory:
    ```sh
    cd research-paper-prompt-generator
    ```
 3. Ensure you have Python installed (version 3.6 or higher).
+4. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 ## Usage
+4.Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
 1. Run the script:
    ```sh
-   python prompt_generator.py
+   streamlit run Main.py
    ```
-2. Follow the prompts to enter the research paper topic and sample prompt template.
+3. Follow the prompts to enter the research paper topic and sample prompt template in the input fields.
 
 ## Example
-### Table of Contents Input
-```python
-table_of_contents = {
-    "Introduction": 750,
-    "Background": 100,
-    "Federated Learning in Healthcare": 200,
-    "Importance of Diagnosing Urinary Bladder Inflammation": 250,
-    "Objectives of the Study": 200,
-    "Literature Review": 1000,
-    "Federated Learning in Healthcare": 250,
-    "Artificial Neural Networks (ANN) in Medical Diagnostics": 250,
-    "Support Vector Machines (SVM) in Medical Diagnostics": 250,
-    "Comparative Studies on ANN and SVM": 250,
-    "References": 500
-}
-```
+
 
 ### Sample Prompt Input
 ```
