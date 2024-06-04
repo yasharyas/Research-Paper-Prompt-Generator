@@ -1,5 +1,6 @@
 import streamlit as st
 
+@st.cache
 def generate_prompts(table_of_contents, research_paper_topic, sample_prompt):
     prompts = []
     for heading, word_count in table_of_contents.items():
@@ -14,11 +15,7 @@ def main():
     st.sidebar.header("Input Parameters")
     
     research_paper_topic = st.sidebar.text_input("Enter the research paper topic", "").strip()
-    
-    sample_prompt = st.sidebar.text_input(
-        "Enter the sample prompt with blank fields (e.g., '[Word Count] [Heading name] [Research Paper Title]')",
-        ""
-    ).strip().lower()
+    sample_prompt = st.sidebar.text_input("Enter the sample prompt with blank fields (e.g., '[Word Count] [Heading name] [Research Paper Title]')", "").strip().lower()
 
     st.sidebar.subheader("Table of Contents")
     toc_count = st.sidebar.number_input("Number of sections in Table of Contents", min_value=1, max_value=20, step=1)
@@ -31,7 +28,9 @@ def main():
             table_of_contents[heading] = word_count
 
     if st.sidebar.button("Generate Prompts"):
-        if research_paper_topic and sample_prompt and table_of_contents:
+        if not (research_paper_topic and sample_prompt and table_of_contents):
+            st.error("Please fill in all the fields to generate prompts")
+        else:
             st.subheader("Sample Prompt")
             st.write(sample_prompt)
             
@@ -39,8 +38,6 @@ def main():
             st.subheader("Generated Prompts")
             for i, prompt in enumerate(prompts, start=1):
                 st.write(f"{i}. {prompt}")
-        else:
-            st.error("Please fill in all the fields to generate prompts")
 
 if __name__ == "__main__":
     main()
